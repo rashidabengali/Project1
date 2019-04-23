@@ -1,0 +1,18 @@
+<h2><%= @cuisine.name %></h2>
+
+<% if @cuisine.image.present? %>
+<%= image_tag @cuisine.image %>
+<% end %>
+
+<% if @cuisine.restaurants.present? %>
+  <p>Restaurants that serve <em><%= @cuisine.name %></em></p>
+  <% @cuisine.restaurants.each do |r| %>
+   <%= link_to r.name, r %>
+  <% end %>
+<% end %>
+
+<div class="controls">
+<%= link_to 'Add Cuisine', new_cuisine_path  %>
+<%= link_to 'Edit Cuisine', edit_cuisine_path(@cuisine.id), :class => 'do' %>
+<%= link_to 'Delete Cuisine', cuisine_path(@cuisine.id), :method => 'delete', :data => {:confirm => 'Are you sure?'}, :class => 'do'%>
+</div>

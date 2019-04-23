@@ -1,0 +1,30 @@
+<h2><%= @restaurant.name %></h2>
+<% if @restaurant.image.present? %>
+<%= image_tag @restaurant.image %>
+<% end %>
+<ul>
+  <% if @restaurant.cuisine.present? %>
+    <li>Cuisine: <%= link_to @restaurant.cuisine.name, @restaurant.cuisine %></li>
+  <% end %>
+  <li>Location: <%= @restaurant.location %></li>
+  <li>Specialities: <%= @restaurant.specialities %></li>
+</ul>
+
+<% if @restaurant.reviews.present? %>
+  <p><strong>Reviews:</strong></p>
+  <% @restaurant.reviews.order(:id).each do |r| %>
+    <p><em>Rating</em>: <%= r.rating %></p>
+    <p><em>Comment</em>: <%= r.comment %></p>
+    <div class="controls">
+    <%= link_to 'Edit Review', edit_restaurant_review_path(@restaurant.id, r.id), :class => 'do' %>
+    <%= link_to 'Delete Review', restaurant_review_path(@restaurant.id, r.id), :method => 'delete', :data => {:confirm => 'Are you sure?'}, :class => 'do'%>
+    </div>
+  <% end %>
+<% end %>
+
+<%= link_to 'Add review', new_restaurant_review_path(@restaurant.id) %>
+<div class="controls">
+<%= link_to 'Add Restaurant', new_restaurant_path  %>
+<%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant.id), :class => 'do' %>
+<%= link_to 'Delete Restaurant', restaurant_path(@restaurant.id), :method => 'delete', :data => {:confirm => 'Are you sure?'}, :class => 'do'%>
+</div>

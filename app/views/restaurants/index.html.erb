@@ -1,0 +1,6 @@
+<h2>Restaurants in Sydney City</h2>
+<% @restaurants.each do |r| %>
+<p>
+<%= link_to r.name, restaurant_path(r.id) %>
+</p>
+<% end %>

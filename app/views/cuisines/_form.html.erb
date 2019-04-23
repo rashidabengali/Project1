@@ -1,0 +1,7 @@
+<%= form_for @cuisine do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, :autofocus => true, :required => true %>
+  <%= f.label :image %>
+  <%= f.url_field :image, :required => true %>
+  <%= f.submit %>
+<% end %>

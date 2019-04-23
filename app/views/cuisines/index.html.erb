@@ -1,0 +1,6 @@
+<h2>Type of Cuisines</h2>
+<% @cuisines.each do |c| %>
+<p>
+  <%= link_to c.name, cuisine_path(c.id)%>
+</p>
+<% end %>

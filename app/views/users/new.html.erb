@@ -1,2 +1,25 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h2>New Member Sign Up Form</h2>
+
+<% if @user.errors.any? %>
+<ol>
+  <% @user.errors.full_messages.each do |m| %>
+    <li><%= m %></li>
+  <% end %>
+</ol>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, :required => true, :placeholder => "Your Name" %>
+  <%= f.label :date_of_birth %>
+  <%= f.text_field :dob, :placeholder => 'YYYY-MM-DD' %>
+  <%= f.label :image %>
+  <%= f.url_field :image, :placeholder => "http://"%>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+  <%= f.submit "Sign Up" %>
+<% end %>

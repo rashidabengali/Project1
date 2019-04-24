@@ -1,4 +1,18 @@
+<% if @current_user.present? %>
+<h2>Welcome <%= @current_user.name %></h2>
+<% end %>
+
+<%= flash[:error] %>
+
 <h1>Find Your Dine</h1>
+
+In the mood to go out?
+
+contact
+operating hours
+call to book a table
+directions
+menus
 
 <h3>Search Sydney City's Specialities</h3>
 

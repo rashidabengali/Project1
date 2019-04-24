@@ -1,0 +1,17 @@
+<h2>Edit Profile Details</h2>
+
+<%= form_for @user do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, :value => @user.name, :required => true %>
+  <%= f.label :date_of_birth %>
+  <%= f.text_field :dob, :value => @user.dob, :placeholder => 'YYYY-MM-DD' %>
+  <%= f.label :image %>
+  <%= f.url_field :image, :value => @user.image, :placeholder => "http://" %>
+  <%= f.label :email %>
+  <%= f.email_field :email, :value => @user.email %>
+  <%= f.label :password, "Change Password" %>
+  <%= f.password_field :password %>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+  <%= f.submit "Update Details" %>
+<% end %>

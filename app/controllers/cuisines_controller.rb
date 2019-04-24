@@ -1,6 +1,8 @@
 class CuisinesController < ApplicationController
   def index
     @cuisines = Cuisine.all
+    @q = Cuisine.ransack(params[:q])
+    @cuisines = @q.result(distinct: true)
   end
 
   def show

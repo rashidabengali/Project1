@@ -2,6 +2,19 @@
 <% if @restaurant.image.present? %>
 <%= image_tag @restaurant.image %>
 <% end %>
+
+<p><%= button_to 'Like', restaurant_likes_path(@restaurant), method: :post %></p>
+<%= flash[:notice] %>
+
+<p><%= @restaurant.likes.count %> <%= (@restaurant.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+
+<% if @current_user.present? %>
+<p><% pre_like = @restaurant.likes.find { |like| like.user_id == @current_user.id} %>
+  <% if pre_like %>
+  <%= button_to 'Unlike', restaurant_like_path(@restaurant, pre_like), method: :delete %>
+  <% end %>
+</p>
+<% end %>
 <ul>
   <% if @restaurant.cuisine.present? %>
     <li>Cuisine: <%= link_to @restaurant.cuisine.name, @restaurant.cuisine %></li>
@@ -12,19 +25,38 @@
 
 <% if @restaurant.reviews.present? %>
   <p><strong>Reviews:</strong></p>
-  <% @restaurant.reviews.order(:id).each do |r| %>
-    <p><em>Rating</em>: <%= r.rating %></p>
+  <p><%= @restaurant.reviews.count %> <%= (@restaurant.reviews.count) == 1 ? 'Review' : 'Reviews'%></p>
+  <% @restaurant.reviews.order(created_at: :desc).each do |r| %>
+  ---------------------------------------------------
+    <p><%= r.created_at.strftime '%A, %B %e, %Y | %H:%M:%S' %></p>
+    <% if r.user.image.present? %>
+    <p><%= image_tag r.user.image, :class => 'thumbnail' %></p>
+    <% end %>
+    <p>
+      <% for i in 1..5 %>
+      <span class="fa fa-star <%= r.rating >= i ? "checked" : "" %>"></span>
+      <% end %>
+    </p>
     <p><em>Comment</em>: <%= r.comment %></p>
+    ---------------------------------------------------
     <div class="controls">
-    <%= link_to 'Edit Review', edit_restaurant_review_path(@restaurant.id, r.id), :class => 'do' %>
-    <%= link_to 'Delete Review', restaurant_review_path(@restaurant.id, r.id), :method => 'delete', :data => {:confirm => 'Are you sure?'}, :class => 'do'%>
+      <% if @current_user.present? && @current_user.id == r.user_id %>
+        <%= link_to 'Edit Review', edit_restaurant_review_path(@restaurant.id, r.id), :class => 'do' %>
+        <%= link_to 'Delete Review', restaurant_review_path(@restaurant.id, r.id), :method => 'delete', :data => {:confirm => 'Are you sure?'}, :class => 'do'%>
+      <% end %>
     </div>
   <% end %>
 <% end %>
 
-<%= link_to 'Add review', new_restaurant_review_path(@restaurant.id) %>
+<% if @current_user.present? %>
+  <%= link_to 'Add review', new_restaurant_review_path(@restaurant.id) %>
+<% else %>
+  <%= link_to 'Add review', login_path %>
+<% end %>
+
 <div class="controls">
+<% if @current_user.present? && @current_user.admin? %>
 <%= link_to 'Add Restaurant', new_restaurant_path  %>
 <%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant.id), :class => 'do' %>
 <%= link_to 'Delete Restaurant', restaurant_path(@restaurant.id), :method => 'delete', :data => {:confirm => 'Are you sure?'}, :class => 'do'%>
-</div>
+<% end %>

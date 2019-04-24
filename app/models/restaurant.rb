@@ -12,7 +12,10 @@
 #  cuisine_id   :integer
 #
 
+
 class Restaurant < ApplicationRecord
   belongs_to :cuisine, :optional => 'true'
   has_many :reviews
+  has_many :likes, dependent: :destroy
+
 end

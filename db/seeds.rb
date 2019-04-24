@@ -8,12 +8,12 @@
 
 User.destroy_all
 # user.create :email => 'crazy@ga.co'
-u1 = User.create :email => 'bengali.rashida@gmail.com', :password => 'rash'
-u2 = User.create :email => 'huzaifa.ms@gmail.com', :password => 'chicken'
-u3 = User.create :email => 'joel@ga.co', :password => 'chicken'
-u4 = User.create :email => 'yianni@ga.co', :password => 'chicken'
-u5 = User.create :email => 'purvi@ga.co', :password => 'chicken'
-u6 = User.create :email => 'ritika.@ga.co', :password => 'chicken'
+u1 = User.create(:name => 'Rashida Bengali', :email => 'bengali.rashida@gmail.com', :password => 'rash', :admin => true)
+u2 = User.create(:name => 'Huzaifa Shakir', :email => 'huzaifa.ms@gmail.com', :password => 'chicken')
+u3 = User.create(:name => 'Joel Turnbull', :email => 'joel@ga.co', :password => 'chicken')
+u4 = User.create(:name => 'Yianni Moustakas', :email => 'yianni@ga.co', :password => 'chicken')
+u5 = User.create(:name => 'Purvi Pandya', :email => 'purvi@ga.co', :password => 'chicken')
+u6 = User.create(:name => 'Ritika Goel', :email => 'ritika.@ga.co', :password => 'chicken')
 
 Cuisine.destroy_all
 c1 = Cuisine.create :name => 'Modern Australian'
@@ -50,3 +50,7 @@ c6.restaurants << r6
 #restaurants and reviews
 r1.reviews << a1
 r2.reviews << a2
+
+#users and Reviews
+u1.reviews << a1
+u2.reviews << a2

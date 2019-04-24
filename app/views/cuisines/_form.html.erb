@@ -1,7 +1,7 @@
 <%= form_for @cuisine do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name, :autofocus => true, :required => true %>
+  <%= f.text_field :name, :autofocus => true, :required => true, :placeholder => "cuisine type %>
   <%= f.label :image %>
-  <%= f.url_field :image, :required => true %>
+  <%= f.url_field :image, :required => true, :placeholder => "http://" %>
   <%= f.submit %>
 <% end %>

@@ -12,7 +12,9 @@
 <% end %>
 
 <div class="controls">
+<% if @current_user.present? && @current_user.admin? %>
 <%= link_to 'Add Cuisine', new_cuisine_path  %>
 <%= link_to 'Edit Cuisine', edit_cuisine_path(@cuisine.id), :class => 'do' %>
 <%= link_to 'Delete Cuisine', cuisine_path(@cuisine.id), :method => 'delete', :data => {:confirm => 'Are you sure?'}, :class => 'do'%>
+<% end %>
 </div>

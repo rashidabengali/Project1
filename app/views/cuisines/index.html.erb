@@ -6,7 +6,7 @@
   <% end %>
   <% @cuisines.each do |c| %>
   <ol>
-    <li class="list" style="background-color: <%= cycle('#FFFFFF', '#DA534D') %>"><%= link_to c.name, cuisine_path(c.id)%></li>
+    <li class="list"><%= link_to c.name, cuisine_path(c.id)%></li>
   </ol>
   <% end %>
 </div>

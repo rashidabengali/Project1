@@ -4,7 +4,7 @@
   <h2><%= @cuisine.name %></h2>
 
   <% if @cuisine.image.present? %>
-  <%= image_tag @cuisine.image %>
+  <%= image_tag @cuisine.image, :class => "cuisine-feature" %>
   <% end %>
 
   <% if @cuisine.restaurants.present? %>

@@ -1,3 +1,67 @@
 // Place all the styles related to the Session controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body.session.new {
+
+  .session {
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: brown;
+    text-align: center;
+    font-family: Helvetica;
+    border-radius: 10%;
+    min-height: 650px;
+  }
+
+  h2 {
+    font-family: 'Germania One', cursive;
+    text-align: center;
+    margin: 0 0 20px 0;
+    padding: 10px;
+    letter-spacing: .15em;
+    background-color: black;
+    font-weight: 600;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    font-size: 30px;
+    color: brown;
+  }
+
+label, input {
+padding: 10px;
+text-align: center;
+}
+
+label {
+  font-family: Comic Sans ms;
+  color:#AB8544;
+  letter-spacing: 2px;
+  font-size: 25px;
+}
+
+input {
+  font-size: 20px;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 5px;
+}
+
+input[type=submit] {
+  border: 3px solid white;
+  border-radius: 15px;
+  background-color: black;
+  color: brown;
+  font-size: 20px;
+  padding: 10px;
+  font-weight: bold;
+  font-family: "Indie Flower";
+}
+
+input[type=submit]:hover {
+  background-color: #AB8544;
+  transition: 1s all;
+  color: brown;
+  border: 3px solid black;
+}
+}

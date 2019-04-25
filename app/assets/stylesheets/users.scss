@@ -115,9 +115,9 @@ li a:hover {
   }
 }
 
-body.cuisines.new, body.cuisines.edit {
+body.users.new, body.users.edit {
 
-  .cuisine {
+  .user {
     max-width: 960px;
     margin: 0 auto;
     background-color: brown;
@@ -141,40 +141,50 @@ body.cuisines.new, body.cuisines.edit {
     color: brown;
   }
 
-label, input {
-padding: 10px;
-text-align: center;
-}
+  form {
+    margin-top: 5px;
+    border: 5px inset white;
+    color: white;
+    padding: 20px;
+    font-family: Comic Sans MS;
+    margin-left: 300px;
+    margin-bottom: 10px;
+    width: 400px;
+    text-align: left;
+  }
 
- label {
-  font-family: Comic Sans ms;
-  color:#AB8544;
-  letter-spacing: 2px;
-  text-align: left;
-  font-size: 30px;
-}
+  form label {
+    text-align: left;
+    width: 40px;
+    font-size: 20px;
+    color:#AB8544;
+    letter-spacing: 2px;
+  }
 
-input {
-  font-size: 20px;
-  padding: 10px;
-  margin: 20px;
-  border-radius: 5px;
-}
+  form input, select {
+    width: 300px;
+    border-radius: 5px;
+  }
 
-input[type=submit] {
-  border: 3px solid white;
-  border-radius: 15px;
-  background-color: black;
-  color: brown;
-  font-size: 20px;
-  font-weight: bold;
-  font-family: "Indie Flower";
-}
+  form input {
+    display: block;
+    margin-bottom: 10px;
+  }
 
-input[type=submit]:hover {
-  background-color: #AB8544;
-  transition: 1s all;
-  color: brown;
-  border: 3px solid black;
-}
+  form input[type=submit] {
+    border: 3px solid white;
+    border-radius: 15px;
+    background-color: black;
+    color: brown;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: "Indie Flower";
+  }
+
+  form input[type=submit]:hover {
+    background-color: #AB8544;
+    transition: 1s all;
+    color: brown;
+    border: 3px solid black;
+  }
 }

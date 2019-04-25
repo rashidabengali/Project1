@@ -12,16 +12,22 @@
   <%= form_for @user do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name, :required => true, :placeholder => "Your Name" %>
+    <br>
     <%= f.label :date_of_birth %>
     <%= f.text_field :dob, :placeholder => 'YYYY-MM-DD' %>
+    <br>
     <%= f.label :image %>
     <%= f.url_field :image, :placeholder => "http://"%>
+    <br>
     <%= f.label :email %>
     <%= f.email_field :email %>
+    <br>
     <%= f.label :password %>
     <%= f.password_field :password %>
+    <br>
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %>
+    <br>
     <%= f.submit "Sign Up" %>
   <% end %>
 

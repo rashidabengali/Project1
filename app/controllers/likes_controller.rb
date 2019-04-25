@@ -28,7 +28,8 @@ class LikesController < ApplicationController
   private
 
   def already_liked?
-    Like.where(user_id: @current_user.id, restaurant_id: params[:restaurant_id]).exists?
+    @liked = Like.where(user_id: @current_user.id, restaurant_id: params[:restaurant_id]).exists?
+    @liked
   end
 
   def find_restaurant

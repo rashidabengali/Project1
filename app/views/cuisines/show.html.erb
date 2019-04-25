@@ -1,20 +1,25 @@
-<h2><%= @cuisine.name %></h2>
+<div class="cuisine">
 
-<% if @cuisine.image.present? %>
-<%= image_tag @cuisine.image %>
-<% end %>
 
-<% if @cuisine.restaurants.present? %>
-  <p>Restaurants that serve <em><%= @cuisine.name %></em></p>
-  <% @cuisine.restaurants.each do |r| %>
-   <%= link_to r.name, r %>
+  <h2><%= @cuisine.name %></h2>
+
+  <% if @cuisine.image.present? %>
+  <%= image_tag @cuisine.image %>
   <% end %>
-<% end %>
 
-<div class="controls">
-<% if @current_user.present? && @current_user.admin? %>
-<%= link_to 'Add Cuisine', new_cuisine_path  %>
-<%= link_to 'Edit Cuisine', edit_cuisine_path(@cuisine.id), :class => 'do' %>
-<%= link_to 'Delete Cuisine', cuisine_path(@cuisine.id), :method => 'delete', :data => {:confirm => 'Are you sure?'}, :class => 'do'%>
-<% end %>
+  <% if @cuisine.restaurants.present? %>
+    <p class="serve">Restaurants that serve <%= @cuisine.name %></p>
+    <li><% @cuisine.restaurants.each do |r| %>
+     <%= link_to r.name, r %>
+    <% end %>
+    </li>
+  <% end %>
+
+  <div class="controls">
+  <% if @current_user.present? && @current_user.admin? %>
+  <%= link_to 'Add Cuisine', new_cuisine_path, :class => 'do'  %>
+  <%= link_to 'Edit Cuisine', edit_cuisine_path(@cuisine.id), :class => 'do' %>
+  <%= link_to 'Delete Cuisine', cuisine_path(@cuisine.id), :method => 'delete', :data => {:confirm => 'Are you sure?'}, :class => 'do'%>
+  <% end %>
+  </div>
 </div>

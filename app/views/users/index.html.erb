@@ -1,5 +1,5 @@
 <h2>List of Members</h2>
 
 <% @users.each do |u| %>
-<p><%= u.name %></p>
+<p><%= link_to u.name, user_path(u.id) %></p>
 <% end %>

@@ -18,4 +18,7 @@ class Restaurant < ApplicationRecord
   has_many :reviews
   has_many :likes, dependent: :destroy
 
+  def average_rating
+    reviews.pluck(:rating).sum.to_f / reviews.count
+  end
 end

@@ -1,13 +1,18 @@
-<%= form_for @restaurant do |f| %>
+<%= form_for @restaurant, :html => {:multipart => true} do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name, :autofocus => true, :required => true, :placeholder => "Restaurant Name" %>
+  <%= f.text_field :name, :autofocus => true, :required => true, :placeholder => "Restaurant name" %>
+  <br>
   <%= f.label :location %>
-  <%= f.text_field :location, :placeholder => "suburb name" %>
+  <%= f.text_field :location, :placeholder => "Suburb name" %>
+  <br>
   <%= f.label :specialities %>
-  <%= f.text_field :specialities, :placeholder => "dish names" %>
+  <%= f.text_field :specialities, :placeholder => "Dish names" %>
+  <br>
   <%= f.label :cuisine_id %>
   <%= f.select :cuisine_id, Cuisine.pluck(:name, :id), :include_blank => true %>
-  <%= f.label :image %>
-  <%= f.url_field :image, :placeholder => "http://" %>
+  <br>
+  <%= f.label :images %>
+  <%= f.cl_image_upload :images %>
+  <br>
   <%= f.submit %>
 <% end %>

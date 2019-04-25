@@ -1,13 +1,25 @@
-<h2>Restaurants in Sydney City</h2>
+<div class="restaurant">
+  <h2>Restaurants in Sydney City</h2>
 
-<%= search_form_for @q do |f| %>
+<div id="restaurant-search">
+  <%= search_form_for @q do |f| %>
 
-  <%= f.search_field :name_cont, :placeholder => 'Type Restaurant', :autofocus => 'true' %>
+    <%= f.search_field :name_cont, :placeholder => 'Type Restaurant', :autofocus => 'true', :class => 'bar' %>
 
-  <%= f.submit %>
-<% end %>
-
-<% @restaurants.each do |r| %>
-<p> <%= link_to r.name, restaurant_path(r.id) %> </p>
-<p><%= r.likes.count %> <%= (r.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-<% end %>
+    <%= f.submit "Search", :class => 'bar_button' %>
+  <% end %>
+</div>
+  <% @restaurants.each do |r| %>
+    <div id="restaurant-list">
+      <div id="restaurant-name">
+        <%= link_to r.name, restaurant_path(r.id) %> <br>
+        <span id="restaurant-location"><%= r.location %></span>
+      </div>
+      <div id="restaurant-stats">
+        Rating <span class="w3-badge w3-padding"><%= r.average_rating %></span>
+        <br>
+        <span class="w3-badge w3-padding"><%= r.likes.count %></span> <%= (r.likes.count) == 1 ? 'Like' : 'Likes'%>
+      </div>
+    </div>
+  <% end %>
+</div>

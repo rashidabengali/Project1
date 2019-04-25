@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_23_225629) do
+ActiveRecord::Schema.define(version: 2019_04_24_054411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,14 +31,21 @@ ActiveRecord::Schema.define(version: 2019_04_23_225629) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "locations", force: :cascade do |t|
+    t.text "name"
+    t.text "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "restaurants", force: :cascade do |t|
     t.text "name"
     t.text "location"
-    t.text "image"
     t.text "specialities"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "cuisine_id"
+    t.text "images", default: [], array: true
   end
 
   create_table "reviews", force: :cascade do |t|

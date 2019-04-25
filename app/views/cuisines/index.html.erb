@@ -1,12 +1,12 @@
-<h2>Type of Cuisines</h2>
-<%= search_form_for @q do |f| %>
-
-  <%= f.search_field :name_cont, :placeholder => 'Type Cuisine', :autofocus => 'true' %>
-
-  <%= f.submit %>
-<% end %>
-<% @cuisines.each do |c| %>
-<p>
-  <%= link_to c.name, cuisine_path(c.id)%>
-</p>
-<% end %>
+<div class="cuisine">
+  <h2>Type of Cuisines</h2>
+  <%= search_form_for @q do |f| %>
+  <%= f.text_field :name_cont, :placeholder => 'Type Cuisine', :class => 'bar' %>
+  <%= f.submit "Search", :class => 'bar_button' %>
+  <% end %>
+  <% @cuisines.each do |c| %>
+  <ol>
+    <li class="list" style="background-color: <%= cycle('#FFFFFF', '#DA534D') %>"><%= link_to c.name, cuisine_path(c.id)%></li>
+  </ol>
+  <% end %>
+</div>

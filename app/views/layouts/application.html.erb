@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Project1</title>
+    <title>Restaurants on Rails</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= cloudinary_js_config %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="shortcut icon" type="image/png" href="https://ya-webdesign.com/images/plate-cartoon-png-5.png">
+    <link rel="stylesheet" href="../assets/stylesheets/_reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-      .checked {
-        color: orange;
-      }
-    </style>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" >
+
   </head>
-  <body>
-    <div class="container">
-      <nav>
-        <%= link_to 'Home', root_path %>
-        <%= link_to 'Type of Cuisines', cuisines_path %>
-        <%= link_to 'List of Restaurants', restaurants_path %>
-        <% if @current_user.present? %>
-          <% if @current_user.admin? %>
-            <%= link_to 'All Members', users_path %>
-          <% end %>
-          <%= link_to "My Profile", user_path(@current_user.id) %>
-          <%= link_to "Log Out #{@current_user.name}", login_path, :method => 'delete' %>
-        <% else %>
-          <%= link_to 'Create Account', new_user_path %>
-          <%= link_to 'Log In', login_path %>
+  <body class="<%= params[:controller] %> <%= params[:action] %>">
+    <nav>
+      <%= link_to 'Home', root_path %>
+      <%= link_to 'Type of Cuisines', cuisines_path %>
+      <%= link_to 'List of Restaurants', restaurants_path %>
+      <% if @current_user.present? %>
+        <% if @current_user.admin? %>
+          <%= link_to 'All Members', users_path %>
         <% end %>
-      </nav>
+        <%= link_to "My Profile", user_path(@current_user.id) %>
+        <%= link_to "Log Out #{@current_user.name}", login_path, :method => 'delete' %>
+      <% else %>
+        <%= link_to 'Create Account', new_user_path %>
+        <%= link_to 'Log In', login_path %>
+      <% end %>
+    </nav>
+    <div class="container">
       <%= yield %>
     </div>
-    <footer></footer>
+    <div class="end">
+        <p>Designed with &hearts; by <span>Rashida Bengali</span></p>
+        <ul id="social">
+          <li><a href="mailto:bengali.rashida@gmail.com"><i class="fa fa-envelope"></i> </a></li>
+          <li><a href="http://github.com/"><i class="fa fa-github"></i></a></li>
+          <li><a href="http://linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
+          <li><a href="http://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+        </ul>
+      </div>
   </body>
 </html>

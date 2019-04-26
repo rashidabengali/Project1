@@ -92,6 +92,17 @@ body.pages.home h1:hover
   transition: 2s all;
 }
 
+body.pages.home #homeimg {
+  border-radius: 30%;
+}
+
+body.pages.home .homediv {
+  text-align: center;
+}
+
+body.pages.home .homediv:hover {
+  opacity: 0.7;
+}
 body.pages.home h3 {
   font-family: 'Dancing Script', cursive;
   padding: 10px;

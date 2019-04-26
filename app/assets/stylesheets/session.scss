@@ -3,7 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body.session.new {
-
+  #loginimg {
+    border-radius: 45%;
+  }
   .session {
     max-width: 960px;
     margin: 0 auto;

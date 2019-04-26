@@ -3,7 +3,7 @@
   <h2><%= @restaurant.name %></h2>
   <div id="flash-notice"><%= flash[:notice] %></div>
   <% if @restaurant.images.present? %>
-  <%= cl_image_tag(@restaurant.images.last, :class => "restaurant-feature") %>
+  <%= cl_image_tag(@restaurant.images.last, :width => "400px", :class => "restaurant-feature") %>
   <% end %>
 
   <div id="like-buttons">

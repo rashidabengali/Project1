@@ -3,9 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body.session.new {
+
   #loginimg {
     border-radius: 45%;
+    -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
+    -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+    box-shadow: 10px 10px 7px rgba(0,0,0,.7);
   }
+
   .session {
     max-width: 960px;
     margin: 0 auto;
@@ -65,5 +70,6 @@ input[type=submit]:hover {
   transition: 1s all;
   color: brown;
   border: 3px solid black;
+  cursor: url("/assets/icons8-dining-room-48.png"), auto;
 }
 }

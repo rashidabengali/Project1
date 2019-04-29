@@ -2,16 +2,19 @@
 #
 # Table name: restaurants
 #
-#  id           :bigint(8)        not null, primary key
-#  name         :text
-#  location     :text
-#  image        :text
-#  specialities :text
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  cuisine_id   :integer
+#  id            :bigint(8)        not null, primary key
+#  name          :text
+#  location      :text
+#  specialities  :text
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  cuisine_id    :integer
+#  images        :text             default([]), is an Array
+#  contact       :integer
+#  phone         :integer
+#  opening_hours :time
+#  closing_hours :time
 #
-
 
 class Restaurant < ApplicationRecord
   belongs_to :cuisine, :optional => 'true'

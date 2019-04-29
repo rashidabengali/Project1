@@ -5,13 +5,17 @@
   <%= image_tag @user.image, :class => "user-feature" %>
   <% end %>
   <ul>
-    <li>Date of Birth: <%= @user.dob %></li>
+    <% if @user.dob.present? %>
+    <li>Date of Birth: <%= @user.dob.strftime '%A, %B %e, %Y' %></li>
+    <% end %>
     <li>Email: <%= @user.email %></li>
   </ul>
 
   <div class="controls">
+  <% if @current_user.present? %>
   <%= link_to 'Edit Profile', edit_user_path(@user.id), :class => 'do' %>
   <%= link_to 'Delete Profile', user_path(@user.id), :method => 'delete', :data => {:confirm => 'Are you sure?'}, :class => 'do'%>
+  <% end %>
   </div>
 
   <%= flash[:error] %>

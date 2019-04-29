@@ -36,11 +36,40 @@
     <div class="end">
         <p>Designed with &hearts; by <span>Rashida Bengali</span></p>
         <ul id="social">
-          <li><a href="mailto:bengali.rashida@gmail.com"><i class="fa fa-envelope"></i> </a></li>
-          <li><a href="http://github.com/"><i class="fa fa-github"></i></a></li>
-          <li><a href="http://linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
-          <li><a href="http://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="mailto:bengali.rashida@gmail.com" target="_blank"><i class="fa fa-envelope"></i> </a></li>
+          <li><a href="http://github.com/" target="_blank"><i class="fa fa-github"></i></a></li>
+          <li><a href="http://linkedin.com/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+          <li><a href="http://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
         </ul>
       </div>
+
+      <script>
+      var slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+      }
+      </script>
   </body>
 </html>

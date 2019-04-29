@@ -15,6 +15,8 @@
     </li>
   <% end %>
 
+  <img id="plate" src="/assets/plate.png" width="400px">
+
   <div class="controls">
   <% if @current_user.present? && @current_user.admin? %>
   <%= link_to 'Add Cuisine', new_cuisine_path, :class => 'do'  %>

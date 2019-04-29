@@ -1,93 +1,134 @@
 <div class="restaurant">
 
-  <h2><%= @restaurant.name %></h2>
-  <div id="flash-notice"><%= flash[:notice] %></div>
-  <% if @restaurant.images.present? %>
-  <%= cl_image_tag(@restaurant.images.last, :width => "400px", :class => "restaurant-feature") %>
-  <% end %>
+<h2><%= @restaurant.name %></h2>
+<div id="flash-notice"><%= flash[:notice] %></div>
 
-  <div id="like-buttons">
-    <div>
-      <span id="like-button">
-        <%= button_to 'Like', restaurant_likes_path(@restaurant), method: :post, :class => "button #{ 'liked' if @current_user.present? && @current_user.likes.pluck(:restaurant_id).include?(@restaurant.id) }" %>
-      </span>
-      <span id="unlike-button">
-        <% if @current_user.present? %>
-        <% pre_like = @restaurant.likes.find { |like| like.user_id == @current_user.id} %>
-          <% if pre_like %>
-          <%= button_to 'Unlike', restaurant_like_path(@restaurant, pre_like), method: :delete, :class => "temp-button" %>
-          <% end %>
-        <% end %>
-      </span>
-    </div>
-    <div>
-      <span id="like-count" class="w3-badge w3-padding">
-        <%= @restaurant.likes.count %> <%= (@restaurant.likes.count) == 1 ? 'Like' : 'Likes'%>
-      </span>
-    </div>
-  </div>
+<% if @restaurant.images.present? %>
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+<div class="numbertext">1 / 3</div>
+<%= cl_image_tag(@restaurant.images.first, :class => "restaurant-feature") %>
+</div>
+
+<div class="mySlides fade">
+<div class="numbertext">2 / 3</div>
+<%= cl_image_tag(@restaurant.images.second, :class => "restaurant-feature") %>
+</div>
+
+<div class="mySlides fade">
+<div class="numbertext">3 / 3</div>
+<%= cl_image_tag(@restaurant.images.last, :class => "restaurant-feature") %>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+<span class="dot" onclick="currentSlide(1)"></span>
+<span class="dot" onclick="currentSlide(2)"></span>
+<span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<% end %>
+
+<div id="like-buttons">
+<div>
+<span id="like-button">
+<%= button_to 'Like', restaurant_likes_path(@restaurant), method: :post, :class => "button #{ 'liked' if @current_user.present? && @current_user.likes.pluck(:restaurant_id).include?(@restaurant.id) }" %>
+</span>
+<span id="unlike-button">
+<% if @current_user.present? %>
+<% pre_like = @restaurant.likes.find { |like| like.user_id == @current_user.id} %>
+<% if pre_like %>
+<%= button_to 'Unlike', restaurant_like_path(@restaurant, pre_like), method: :delete, :class => "temp-button" %>
+<% end %>
+<% end %>
+</span>
+</div>
+<div>
+<span id="like-count" class="w3-badge w3-padding">
+<%= @restaurant.likes.count %> <%= (@restaurant.likes.count) == 1 ? 'Like' : 'Likes'%>
+</span>
+</div>
+</div>
 
 <div id="restaurant-left">
-  <div id="details">
-    <ul>
-      <% if @restaurant.cuisine.present? %>
-        <li>Cuisine: <%= link_to @restaurant.cuisine.name, @restaurant.cuisine, :id => "cuisine-link" %></li>
-      <% end %>
-      <li>Location: <%= @restaurant.location %></li>
-      <li>Specialities: <%= @restaurant.specialities %></li>
-    </ul>
-  </div>
+<div id="details">
+<ul>
+<% if @restaurant.cuisine.present? %>
+<li>Cuisine: <%= link_to @restaurant.cuisine.name, @restaurant.cuisine, :id => "cuisine-link" %></li>
+<% end %>
+<li>Location: <%= @restaurant.location %></li>
+<li>Specialities: <%= @restaurant.specialities %> &#127863; &#127860;</li>
+<li>&phone; <%= number_to_phone @restaurant.phone %></li>
+<% if @restaurant.opening_hours.present? %>
+<li>Opens at: <%= @restaurant.opening_hours.strftime("%I:%M %p") %></li>
+<% end %>
+<% if @restaurant.closing_hours.present? %>
+<li>Closes at: <%= @restaurant.closing_hours.strftime("%I:%M %p") %></li>
+<% if (Time.now.hour >= @restaurant.opening_hours.hour && Time.now.hour < @restaurant.closing_hours.hour) %>
+<li class="status">OPEN</li>
+<% else %>
+<li class="status">CLOSED</li>
+<% end  %>
+<% end %>
+</ul>
+</div>
 
-  <p id="rate">Average Rating: <span class="w3-badge w3-padding"><%= @restaurant.average_rating %></span></p>
+<p id="rate">Average Rating: <span class="w3-badge w3-padding"><%= @restaurant.average_rating %></span></p>
 
-  <div id="user-reviews">
-    <% if @restaurant.reviews.present? %>
-      <div>
-        <strong style="color: #AB8544"><%= (@restaurant.reviews.count) == 1 ? 'Review' : 'Reviews'%>:</strong>
-        <span class="w3-badge w3-padding"><%= @restaurant.reviews.count %> </span>
+<div id="user-reviews">
+<% if @restaurant.reviews.present? %>
+<div>
+<strong style="color: #AB8544"><%= (@restaurant.reviews.count) == 1 ? 'Review' : 'Reviews'%>:</strong>
+<span class="w3-badge w3-padding"><%= @restaurant.reviews.count %> </span>
 
-        <div id="user-review-add">
-          <% if @current_user.present? %>
-            <%= link_to 'Add review', new_restaurant_review_path(@restaurant.id) %>
-          <% else %>
-            <%= link_to 'Add review', login_path %>
-          <% end %>
-        </div>
-      </div>
+<div id="user-review-add">
+<% if @current_user.present? %>
+<%= link_to 'Add review', new_restaurant_review_path(@restaurant.id) %>
+<% else %>
+<%= link_to 'Add review', login_path %>
+<% end %>
+</div>
+</div>
 
-      <% @restaurant.reviews.order(created_at: :desc).each do |r| %>
-      <div id="reviews-details">
-        <p><%= r.created_at.strftime '%A, %B %e, %Y | %H:%M:%S' %></p>
-        <% if r.user.image.present? %>
-        <p><%= image_tag r.user.image, :class => 'thumbnail' %></p>
-        <% end %>
-        <p>
-          <% for i in 1..5 %>
-          <span class="fa fa-star <%= r.rating >= i ? "checked" : "" %>"></span>
-          <% end %>
-        </p>
-        <p><em>Comment</em>: <%= r.comment %></p>
+<% @restaurant.reviews.order(created_at: :desc).each do |r| %>
+<div id="reviews-details">
+<p><%= r.created_at.strftime '%A, %B %e, %Y | %H:%M:%S' %></p>
+<% if r.user.image.present? %>
+<p><%= image_tag r.user.image, :class => 'thumbnail' %></p>
+<% end %>
+<p>
+<% for i in 1..5 %>
+<span class="fa fa-star <%= r.rating >= i ? "checked" : "" %>"></span>
+<% end %>
+</p>
+<p><em>Comment</em>: <%= r.comment %></p>
 
-        <div class="controls">
-          <% if @current_user.present? && @current_user.id == r.user_id %>
-            <%= link_to 'Edit Review', edit_restaurant_review_path(@restaurant.id, r.id), :class => "review-do" %> |
-            <%= link_to 'Delete Review', restaurant_review_path(@restaurant.id, r.id), :method => 'delete', :data => {:confirm => 'Are you sure?'}, :class => "review-do" %>
-          <% end %>
-        </div>
-      </div>
-      <% end %>
-    <% end %>
-  </div>
+<div class="controls">
+<% if @current_user.present? && @current_user.id == r.user_id %>
+<%= link_to 'Edit Review', edit_restaurant_review_path(@restaurant.id, r.id), :class => "review-do" %> |
+<%= link_to 'Delete Review', restaurant_review_path(@restaurant.id, r.id), :method => 'delete', :data => {:confirm => 'Are you sure?'}, :class => "review-do" %>
+<% end %>
+</div>
+</div>
+<% end %>
+<% end %>
+</div>
 
 
 </div>
 
-  <div class="controls">
-  <% if @current_user.present? && @current_user.admin? %>
-  <%= link_to 'Add Restaurant', new_restaurant_path, :class => 'do'  %>
-  <%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant.id), :class => 'do' %>
-  <%= link_to 'Delete Restaurant', restaurant_path(@restaurant.id), :method => 'delete', :data => {:confirm => 'Are you sure?'}, :class => 'do'%>
-  <% end %>
-  </div>
+<div class="controls">
+<% if @current_user.present? && @current_user.admin? %>
+<%= link_to 'Add Restaurant', new_restaurant_path, :class => 'do'  %>
+<%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant.id), :class => 'do' %>
+<%= link_to 'Delete Restaurant', restaurant_path(@restaurant.id), :method => 'delete', :data => {:confirm => 'Are you sure?'}, :class => 'do'%>
+<% end %>
+</div>
 
 </div>

@@ -8,16 +8,16 @@
 
 User.destroy_all
 # user.create :email => 'crazy@ga.co'
-u1 = User.create(:name => 'Rashida Bengali', :email => 'bengali.rashida@gmail.com', :password => 'rash', :admin => true)
-u2 = User.create(:name => 'Huzaifa Shakir', :email => 'huzaifa.ms@gmail.com', :password => 'chicken')
-u3 = User.create(:name => 'Joel Turnbull', :email => 'joel@ga.co', :password => 'chicken')
-u4 = User.create(:name => 'Yianni Moustakas', :email => 'yianni@ga.co', :password => 'chicken')
-u5 = User.create(:name => 'Purvi Pandya', :email => 'purvi@ga.co', :password => 'chicken')
-u6 = User.create(:name => 'Ritika Goel', :email => 'ritika@ga.co', :password => 'chicken')
-u7 = User.create(:name => 'Luke Anthony', :email => 'luke@ga.co', :password => 'chicken')
-u8 = User.create(:name => 'Mabeth Morris', :email => 'mabeth@ga.co', :password => 'chicken')
-u9 = User.create(:name => 'Patricia Nunes', :email => 'patricia@ga.co', :password => 'chicken')
-u10 = User.create(:name => 'Nazhad Bari', :email => 'nazhad@ga.co', :password => 'chicken')
+u1 = User.create(:name => 'Rashida Bengali', :image => '/assets/RashidaBengali_5bf9dbf4c7897.png', :email => 'bengali.rashida@gmail.com', :password => 'rash', :admin => true)
+u2 = User.create(:name => 'Huzaifa Shakir', :image => '/assets/0.jpeg', :email => 'huzaifa.ms@gmail.com', :password => 'chicken')
+u3 = User.create(:name => 'Joel Turnbull', :image => '/assets/thumb_joel.jpg', :email => 'joel@ga.co', :password => 'chicken')
+u4 = User.create(:name => 'Yianni Moustakas', :image => '/assets/thumb_yiannimoustakas.jpeg', :email => 'yianni@ga.co', :password => 'chicken')
+u5 = User.create(:name => 'Purvi Pandya', :image => '/assets/myavatar.png', :email => 'purvi@ga.co', :password => 'chicken')
+u6 = User.create(:name => 'Ritika Goel', :image => '/assets/Female-Avatar-1.png', :email => 'ritika@ga.co', :password => 'chicken')
+u7 = User.create(:name => 'Luke Anthony', :image => '/assets/202607.1.jpg', :email => 'luke@ga.co', :password => 'chicken')
+u8 = User.create(:name => 'Mabeth Morris', :image => '/assets/myavatar.png', :email => 'mabeth@ga.co', :password => 'chicken')
+u9 = User.create(:name => 'Patricia Nunes', :image => '/assets/Female-Avatar-1.png', :email => 'patricia@ga.co', :password => 'chicken')
+u10 = User.create(:name => 'Nazhad Bari', :image => '/assets/naz.jpg', :email => 'nazhad@ga.co', :password => 'chicken')
 
 
 Cuisine.destroy_all
@@ -30,32 +30,34 @@ c6 = Cuisine.create :name => 'Lebanese'
 c7 = Cuisine.create :name => 'Chinese'
 
 Restaurant.destroy_all
-r1 = Restaurant.create(:name => '12-Micron', :location => 'Wynyard', :specialities => 'Steaks')
-r2 = Restaurant.create(:name => '@iconic', :location => 'Wynyard', :specialities => 'Chicken Funghi')
-r3 = Restaurant.create(:name => 'Volcano Steak House', :location => 'Parramatta', :specialities => 'Ribs and Steaks')
+r1 = Restaurant.create(:name => '12-Micron', :location => 'Wynyard', :phone => 83222075, :specialities => 'Steaks', :opening_hours => '9:00:00', :closing_hours => '21:00:00')
+r2 = Restaurant.create(:name => '@iconic', :location => 'Wynyard', :phone => 97093499, :specialities => 'Chicken Funghi', :opening_hours => '9:00:00', :closing_hours => '22:00:00')
+r3 = Restaurant.create(:name => 'Volcano Steak House', :location => 'Parramatta', :phone => 87644966, :specialities => 'Ribs and Steaks', :opening_hours => '9:00:00', :closing_hours => '21:00:00')
 
-r4 = Restaurant.create(:name => 'Pappa Rich', :location => 'Bankstown', :specialities => 'Beef curry')
-r5 = Restaurant.create(:name => 'Ipoh Town', :location => 'Bankstown', :specialities => 'Laksa noodles')
-r6 = Restaurant.create(:name => 'Albee''s Kitchen', :location => 'Campsie', :specialities => 'Poached chicken rice')
+r4 = Restaurant.create(:name => 'Pappa Rich', :location => 'Bankstown', :phone => 87644966, :specialities => 'Beef curry', :opening_hours => '9:00:00', :closing_hours => '22:00:00')
+r5 = Restaurant.create(:name => 'Ipoh Town', :location => 'Bankstown', :phone => 87644966, :specialities => 'Laksa noodles', :opening_hours => '9:00:00', :closing_hours => '21:00:00')
+r6 = Restaurant.create(:name => 'Albee''s Kitchen', :location => 'Campsie', :phone => 87644966, :specialities => 'Poached chicken rice', :opening_hours => '9:00:00', :closing_hours => '21:00:00')
 
-r7 = Restaurant.create(:name => 'Glacage', :location => 'Bankstown', :specialities => 'Pizza')
-r8 = Restaurant.create(:name => 'CASA', :location => 'Barangaroo', :specialities => 'Pastas')
-r9 = Restaurant.create(:name => 'Pizzeria Belluci', :location => 'Barangaroo', :specialities => 'Shakshouka')
+r7 = Restaurant.create(:name => 'Glacage', :location => 'Bankstown', :phone => 87644966, :specialities => 'Shakshouka', :opening_hours => '9:00:00', :closing_hours => '20:00:00')
+r8 = Restaurant.create(:name => 'CASA', :location => 'Barangaroo', :phone => 87644966, :specialities => 'Wood Fire Pizzas', :opening_hours => '9:00:00', :closing_hours => '21:00:00')
+r9 = Restaurant.create(:name => 'Pizzeria Belluci', :location => 'Barangaroo', :phone => 87644966, :specialities => 'Thin Crust Pizzas', :opening_hours => '9:00:00', :closing_hours => '21:00:00')
 
-r10 = Restaurant.create(:name => 'Koi Dessert Bar', :location => 'Surry Hills', :specialities => 'Strawberry pillow')
-r11 = Restaurant.create(:name => 'Black Star Pastry', :location => 'Newtown', :specialities => 'Watermelon pastry')
-r12 = Restaurant.create(:name => 'Bay Vista', :location => 'Parramatta', :specialities => 'Ice cream buckets')
-r13 = Restaurant.create(:name => 'San Churros', :location => 'Penrith', :specialities => 'Churros')
+r10 = Restaurant.create(:name => 'Koi Dessert Bar', :location => 'Surry Hills', :phone => 87644966, :specialities => 'Strawberry pillow', :opening_hours => '9:00:00', :closing_hours => '20:00:00')
+r11 = Restaurant.create(:name => 'Black Star Pastry', :phone => 87644966, :location => 'Newtown', :specialities => 'Watermelon pastry', :opening_hours => '9:00:00', :closing_hours => '20:00:00')
+r12 = Restaurant.create(:name => 'Bay Vista', :location => 'Parramatta', :phone => 87644966, :specialities => 'Ice cream buckets', :opening_hours => '9:00:00', :closing_hours => '21:00:00')
+r13 = Restaurant.create(:name => 'San Churros', :location => 'Penrith', :phone => 87644966, :specialities => 'Churros', :opening_hours => '9:00:00', :closing_hours => '21:00:00')
 
-r14 = Restaurant.create(:name => 'El Loco', :location => 'Townhall', :specialities => 'Tacos')
-r15 = Restaurant.create(:name => 'Mejico', :location => 'Surry Hills', :specialities => 'Quesadillas')
-r16 = Restaurant.create(:name => 'Chica Bonita', :location => 'Manly', :specialities => 'Burritos')
+r14 = Restaurant.create(:name => 'El Loco', :location => 'Townhall', :phone => 87644966, :specialities => 'Tacos', :opening_hours => '9:00:00', :closing_hours => '21:00:00')
+r15 = Restaurant.create(:name => 'Mejico', :location => 'Surry Hills', :phone => 87644966, :specialities => 'Quesadillas', :opening_hours => '9:00:00', :closing_hours => '21:00:00')
+r16 = Restaurant.create(:name => 'Chica Bonita', :location => 'Manly', :phone => 87644966, :specialities => 'Burritos', :opening_hours => '9:00:00', :closing_hours => '21:00:00')
 
-r17 = Restaurant.create(:name => 'Jasmin 1', :location => 'Bankstown', :specialities => 'Mixed grill platter')
-r18 = Restaurant.create(:name => 'Anason', :location => 'Barangaroo', :specialities => 'Hummus, Pita')
+r17 = Restaurant.create(:name => 'Jasmin 1', :location => 'Bankstown', :phone => 87644966, :specialities => 'Mixed grill platter', :opening_hours => '9:00:00', :closing_hours => '22:00:00')
+r18 = Restaurant.create(:name => 'Anason', :location => 'Barangaroo', :phone => 87644966, :specialities => 'Hummus, Pita', :opening_hours => '9:00:00', :closing_hours => '21:00:00')
 
-r19 = Restaurant.create(:name => 'Chef''s Dynasty', :location => 'Bankstown', :specialities => 'Yum Cha Buffet')
-r20 = Restaurant.create(:name => 'Twisted Noodles', :location => 'Punchbowl', :specialities => 'Noodles')
+r19 = Restaurant.create(:name => 'Chef''s Dynasty', :location => 'Bankstown', :phone => 87644966, :specialities => 'Yum Cha Buffet', :opening_hours => '9:00:00', :closing_hours => '21:00:00')
+r20 = Restaurant.create(:name => 'Twisted Noodles', :location => 'Punchbowl', :phone => 87644966, :specialities => 'Noodles', :opening_hours => '9:00:00', :closing_hours => '21:00:00')
+
+r21 = Restaurant.create(:name => 'Rashays', :location => 'Punchbowl', :phone => 87644966, :specialities => 'Beef Wagyu', :opening_hours => '9:00:00', :closing_hours => '21:00:00')
 
 
 Review.destroy_all
@@ -86,6 +88,34 @@ a24 = Review.create(:rating => 3, :comment => 'Awesome Experience!')
 a25 = Review.create(:rating => 2, :comment => 'Bad Experience!')
 a26 = Review.create(:rating => 1, :comment => 'I can cook better!')
 a27 = Review.create(:rating => 3, :comment => 'Slow service but good food.')
+a28 = Review.create(:rating => 4, :comment => 'Had a fabulous feast with family.')
+a29 = Review.create(:rating => 4, :comment => 'Once is not enough.')
+
+Like.destroy_all
+l1 = Like.create
+l2 = Like.create
+l3 = Like.create
+l4 = Like.create
+l5 = Like.create
+l6 = Like.create
+l7 = Like.create
+l8 = Like.create
+l9 = Like.create
+l10 = Like.create
+l11 = Like.create
+l12 = Like.create
+l13 = Like.create
+l14 = Like.create
+l15 = Like.create
+l16 = Like.create
+l17 = Like.create
+l18 = Like.create
+l19 = Like.create
+l20 = Like.create
+l21 = Like.create
+l22 = Like.create
+l23 = Like.create
+l24 = Like.create
 
 # Association ------------
 
@@ -118,6 +148,9 @@ r16.reviews << a24
 r17.reviews << a25
 r18.reviews << a26
 r19.reviews << a27
+r20.reviews << a28
+r21.reviews << a29
+
 
 #users and Reviews
 u1.reviews << a1 << a2 << a3
@@ -128,5 +161,40 @@ u5.reviews << a13 << a14
 u6.reviews << a15 << a16
 u7.reviews << a17 << a18 << a19 << a20
 u8.reviews << a21 << a22 << a23
-u9.reviews << a24 << a25
-u10.reviews << a26 << a27
+u9.reviews << a24 << a25 << a29
+u10.reviews << a26 << a27 << a28
+
+# restaurants and likes
+r1.likes << l1 << l2 << l3
+r2.likes << l4 << l5
+r3.likes << l6
+r4.likes << l7
+r5.likes << l8
+r6.likes << l9
+r7.likes << l10
+r8.likes << l11
+r9.likes << l12
+r10.likes << l13
+r11.likes << l14
+r12.likes << l15
+r13.likes << l16
+r14.likes << l17
+r15.likes << l18
+r16.likes << l19
+r17.likes << l20
+r18.likes << l21
+r19.likes << l22
+r20.likes << l23
+r21.likes << l24
+
+# users and likes
+u1.likes << l1 << l4
+u2.likes << l2 << l5
+u3.likes << l3 << l6 << l7
+u4.likes << l8 << l9
+u5.likes << l10 << l11 << l12
+u6.likes << l13 << l14 << l15
+u7.likes << l16 << l17
+u8.likes << l18 << l19
+u9.likes << l20 << l21
+u10.likes << l22 << l23 << l24

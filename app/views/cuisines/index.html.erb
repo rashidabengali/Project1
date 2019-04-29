@@ -5,8 +5,8 @@
   <%= f.submit "Search", :class => 'bar_button' %>
   <% end %>
   <% @cuisines.each do |c| %>
-  <ol>
-    <li class="list"><%= link_to c.name, cuisine_path(c.id)%></li>
-  </ol>
+  <div class="list">
+    <%= link_to c.name, cuisine_path(c.id)%>
+  </div>
   <% end %>
 </div>

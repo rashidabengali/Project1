@@ -62,7 +62,7 @@
 <li>Cuisine: <%= link_to @restaurant.cuisine.name, @restaurant.cuisine, :id => "cuisine-link" %></li>
 <% end %>
 <li>Location: <%= @restaurant.location %></li>
-<li>Specialities: <%= @restaurant.specialities %> &#127863; &#127860;</li>
+<li>Signature Dish: <%= @restaurant.specialities %> &#127863; &#127860;</li>
 <li>&phone; <%= number_to_phone @restaurant.phone %></li>
 <% if @restaurant.opening_hours.present? %>
 <li>Opens at: <%= @restaurant.opening_hours.strftime("%I:%M %p") %></li>
@@ -70,9 +70,9 @@
 <% if @restaurant.closing_hours.present? %>
 <li>Closes at: <%= @restaurant.closing_hours.strftime("%I:%M %p") %></li>
 <% if (Time.now.hour >= @restaurant.opening_hours.hour && Time.now.hour < @restaurant.closing_hours.hour) %>
-<li class="status">OPEN</li>
+<p class="status"><span class="w3-badge w3-padding">OPEN</span></p>
 <% else %>
-<li class="status">CLOSED</li>
+<p class="status"><span class="w3-badge w3-padding">CLOSED</span></p>
 <% end  %>
 <% end %>
 </ul>

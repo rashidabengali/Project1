@@ -4,8 +4,8 @@
   <%= f.text_field :name_cont, :placeholder => 'Type Cuisine', :class => 'bar' %>
   <%= f.submit "Search", :class => 'bar_button' %>
   <% end %>
-  <% @cuisines.each do |c| %>
-  <div class="list">
+  <% @cuisines.sort_by(&:name).each do |c| %>
+  <div class="list" style="background: url(<%= c.image %>)">
     <%= link_to c.name, cuisine_path(c.id)%>
   </div>
   <% end %>

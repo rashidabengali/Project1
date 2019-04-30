@@ -9,7 +9,7 @@
 
   <% if @cuisine.restaurants.present? %>
     <p class="serve">Restaurants that serve <%= @cuisine.name %></p>
-    <li><% @cuisine.restaurants.each do |r| %>
+    <li><% @cuisine.restaurants.sort_by(&:name).each do |r| %>
      <%= link_to r.name, r %>
     <% end %>
     </li>

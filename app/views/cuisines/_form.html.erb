@@ -3,7 +3,7 @@
   <%= f.text_field :name, :autofocus => true, :required => true, :placeholder => "Cuisine type" %>
   <br>
   <%= f.label :image %>
-  <%= f.url_field :image, :placeholder => "http://" %>
+  <%= f.url_field :image, :required => true, :placeholder => "http://" %>
   <br>
   <%= f.submit %>
 <% end %>

@@ -15,7 +15,7 @@ Any one who knows how to browse on the internet can use our service to find thei
 ---------------------------------------
 ## Membership Types
 
-There are two types of Membership *Standard* & *Platinum*.
+There are two types of Membership:  *Standard* & *Platinum*.
 
 ![Membership](app/assets/images/membership.png)
 
@@ -147,6 +147,7 @@ This enables the *User* to `Add Review` for that particular Restaurant without h
 
 `Stars & Badges`
 - Introduced *Star* Rating for *Reviews* & *Badges* to show the *Likes* and *Average-Rating*.
+- Set a `min max` condition in the ratings so that *Users* can't *Rate* below 1 or above 5.
 
 `Time.now`
 - Using this method with the `if else` condition to compare the ***opening*** and ***closing*** times of the *Restaurant* displays in real time whether the Restaurant is currently OPEN or CLOSED.

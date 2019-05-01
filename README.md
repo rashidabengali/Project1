@@ -10,7 +10,7 @@ Most of you must have figured out the mystery behind the name of this Applicatio
 
 Any one who knows how to browse on the internet can use our service to find their favourite food place. Just search for the ***Cuisine*** you are craving for and we present you with a list of ***Restaurants*** that offers that particular Cuisine.
 
-[Click here to find out your favourite food place!](https://rashidabengali.github.io/tic-tac-toe/)
+[Click here to find out your favourite food place!](https://project1-rashida.herokuapp.com/)
 
 ---------------------------------------
 ## Membership Types
@@ -85,6 +85,8 @@ The Restaurants are listed in the order of the number of ***Likes***. The one wi
 Technical Terms
 -----------------------------------------
 Now, let's have a real conversation!
+
+**PostgreSQL** database connection has been used for this Rails Application and has been deployed on **Heroku**.
 
 ***Restaurants on Rails*** has the following MVC (Model View Controller) Structure:
 

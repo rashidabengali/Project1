@@ -2,13 +2,13 @@
 
 Restaurants on Rails
 --------------------------------------
-![Food](app/assets/images/goodfood.jpg)
+![Food](app/assets/images/home.png)
 
 *Restaurants on Rails* is the new age Restaurant Finder. It helps you find the answer to the most difficult question: ***Where and What should I eat?***
 
-Most of you must have figured out the mystery behind the name of this Application. It's obvious because it has been built majorly using ```Rails``` and hence ***Users*** can look for their loved *Restaurant on Rails*.
+Most of you must have figured out the mystery behind the name of this Application. It's obvious because it has been built majorly using ```Rails``` so ***Users*** can look for their loved *Restaurant on Rails*.
 
-Any one who knows how to browse on the internet can use our service to find their favourite food place. Just search for the ***Cuisine*** you are craving for and we present you with a list of ***Restaurants*** that offers that particular Cuisine.
+Any one who knows how to browse on the internet can use our service to find their favourite food place. Just search for the ***Cuisine*** you are craving for and we present you with a list of ***Restaurants*** that offer that particular Cuisine.
 
 [Click here to find out your favourite food place!](https://project1-rashida.herokuapp.com/)
 
@@ -17,18 +17,14 @@ Any one who knows how to browse on the internet can use our service to find thei
 
 There are two types of Membership *Standard* & *Platinum*.
 
-![Membership](images/TicTacToe_ani.gif)
+![Membership](app/assets/images/membership.png)
 
 #### Standard Membership
 *Standard* Users can create an account with us for absolutely **FREE** and they get the facility to *Comment*, ***Like*** and ***Review*** the Restaurants on our Page that will help them as well as other people make better dine in choices.
 
-![Account](images/TicTacToe_ani.gif)
-
-![Review](images/TicTacToe_ani.gif)
+![Account](app/assets/images/signup.png)
 
 **Note**: Any one can see the list of Restaurants and its Reviews posted by others. However, only Members can Like or add a Review on a particular Restaurant's page.
-
-![Login](images/TicTacToe_ani.gif)
 
 #### Platinum Membership
 *Platinum* Users can create an account with us for a mere amount of $20 and they get all the facilities of a Standard Member as well as are entitled to a BOOM BOOM 20% ***Discount*** on all the Restaurants listed on our page.
@@ -38,7 +34,7 @@ There are two types of Membership *Standard* & *Platinum*.
 
 You really need to be ***Hungry*** to either ***Sign Up*** or ***Sign In***
 
-![Login](images/TicTacToe_ani.gif)
+![Login](app/assets/images/login.png)
 
 ----------------------------------------
 Let's Begin
@@ -49,13 +45,13 @@ Cuisines
 
 Simply search for your special **Cuisine** and satisfy your craving.
 
-![Cuisine](images/TicTacToe_ani.gif)
+![Cuisine](app/assets/images/cuisinelist.png)
 
-![Cuisine](images/TicTacToe_ani.gif)
+![Cuisine](app/assets/images/search.png)
 
 Each Cuisine will present you with a list of **Restaurants** that specialize in it.
 
-![Restaurant](images/TicTacToe_ani.gif)
+![Restaurant](app/assets/images/cuisinerest.png)
 
 Restaurants
 ------------------------------------------
@@ -69,17 +65,19 @@ You can find the following information on a ***Restaurant*** page that will help
 - Average ***Rating*** and Number of ***Likes*** that will show the popularity of the Restaurant
 - Chance to go through all the ***Comments*** posted by people who have already tried the restaurant out
 
-![Restaurant](images/TicTacToe_ani.gif)
+![Restaurant](app/assets/images/restaurant.png)
+
+![Restaurant](app/assets/images/restreview.png)
 
 #### Alternatively
 ----------------------------------------------
 You can also search for the *Restaurants* directly from our list. The list shows the basic information like *location* and average *rating* of each Restaurant and in order to know more details for each, *Users* needs to click on it.
 
-![Restaurant](images/TicTacToe_ani.gif)
+![Restaurant](app/assets/images/restaurantlist2.png)
+
+![Restaurant](app/assets/images/search2.png)
 
 The Restaurants are listed in the order of the number of ***Likes***. The one with highest number of likes will always render at the top of the page so that the ***Users*** can make choices based on the popularity if they prefer.
-
-![Restaurant](images/TicTacToe_ani.gif)
 
 
 Technical Terms
@@ -96,7 +94,7 @@ Now, let's have a real conversation!
 - Likes
 - Users
 
-![MVC](images/TicTacToe_ani.gif)
+![mvc](app/assets/images/mvc.png)
 
 Each **Model** inherits from *ActiveRecord* that does the following in an object oriented fashion:
 * Create tables
@@ -116,35 +114,41 @@ Major Features:
 `gem 'bcrypt'`
 - This gem was installed to enable usage of secured passwords for **Users**.
 
+Made effective use of `@current_user.present?` and `@current_user.admin?` to do the following:
+1. Assigned **Admin** Rights for the Admin to be able to ***Add*** and ***Edit*** *Cuisines* or *Restaurants*. View profiles of All *Users*.
+2. Only **Current User** has the Right to ***Edit*** his own comment but only ***View*** Rights for comments posted by others. Current User also has the rights to edit information ONLY in their profile.
+
+![admin](app/assets/images/adminright.png)
+
+![user](app/assets/images/useredit.png)
+
 `gem 'ransack'`
 - This gem was installed to create the **Search Bar** on the *Cuisines and Restaurants Index Pages*.
-
-![gem](images/TicTacToe_ani.gif)
 
 `Nested Resources`
 - The **Reviews** and **Likes** `Routes` are nested inside the **Restaurants Routes**.
 
 This enables the *User* to `Add Review` for that particular Restaurant without having to select it additionally. Since the User is clicking on *Add Review* from the *Restaurant Show Page*, the *Nested Routes* take the `Restaurant ID` along when directed towards `Review Form` so the Reviews get ***created*** and ***updated*** accordingly at the correct page.
 
-![add review](images/TicTacToe_ani.gif)
+![add review](app/assets/images/review.png)
 
 `.count method`
 - Renders the total number of ***Likes*** and **Reviews** on the screen for each *Restaurant* by *Users*.
 
 `.sort method`
 - The Restaurants are listed in the order of the number of ***Likes***. The one with highest number of likes will always render at the top of the page so that the ***Users*** can make choices based on the popularity if they prefer.
+- *Users* cannot *Like* one *Restaurant* MORE THAN ONCE.
 
-![likes](images/TicTacToe_ani.gif)
+![likes](app/assets/images/like.png)
 
 `average-rating`
 - Both the *Index* and *Show* Pages show the average rating of each Restaurant based on the number of ratings they have got till now.
 
-![Restaurants](images/TicTacToe_ani.gif)
+`Stars & Badges`
+- Introduced *Star* Rating for *Reviews* & *Badges* to show the *Likes* and *Average-Rating*.
 
 `Time.now method`
 - Using this method with the `if else` condition to compare the ***opening*** and ***closing*** times of the *Restaurant* displays in real time whether the Restaurant is currently OPEN or CLOSED.
-
-![Restaurants](images/TicTacToe_ani.gif)
 
 `.order(created_at: :desc)`
 - This maintains the order of the **Reviews**, the latest being on top on being ***added***. Plus, the ones which get ***edited*** also maintain their original position rather than moving at the top.
@@ -162,6 +166,7 @@ Coming Soon
 ---------------------------------------------
 * Build this application using Zomato API
 * Add one more **Model** ***Locations*** so that ***Users*** can find ***Restaurants*** in their preferred Location.
+* Introduce Platinum Membership in real time.
 * Use Bootstrap to make CSS simpler.
 
 ***Now, scroll up and click on the link and find your favourite Restaurant:***

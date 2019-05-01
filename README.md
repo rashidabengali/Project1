@@ -136,7 +136,8 @@ This enables the *User* to `Add Review` for that particular Restaurant without h
 - Renders the total number of ***Likes*** and **Reviews** on the screen for each *Restaurant* by *Users*.
 
 `.sort method`
-- The Restaurants are listed in the order of the number of ***Likes***. The one with highest number of likes will always render at the top of the page so that the ***Users*** can make choices based on the popularity if they prefer.
+- The *Cuisines* are listed in the alphabetical order.
+- The *Restaurants* are listed in the order of the number of ***Likes***. The one with highest number of likes will always render at the top of the page so that the ***Users*** can make choices based on the popularity if they prefer.
 - *Users* cannot *Like* one *Restaurant* MORE THAN ONCE.
 
 ![likes](app/assets/images/like.png)
@@ -147,7 +148,7 @@ This enables the *User* to `Add Review` for that particular Restaurant without h
 `Stars & Badges`
 - Introduced *Star* Rating for *Reviews* & *Badges* to show the *Likes* and *Average-Rating*.
 
-`Time.now method`
+`Time.now`
 - Using this method with the `if else` condition to compare the ***opening*** and ***closing*** times of the *Restaurant* displays in real time whether the Restaurant is currently OPEN or CLOSED.
 
 `.order(created_at: :desc)`
@@ -162,11 +163,15 @@ Acknowledgement
 
 - I would also take the opportunity to show gratitude towards my Husband *Huzaifa* who was always there motivating me and building up my confidence.
 
-Coming Soon
+Future Features
 ---------------------------------------------
 * Build this application using Zomato API
 * Add one more **Model** ***Locations*** so that ***Users*** can find ***Restaurants*** in their preferred Location.
 * Introduce Platinum Membership in real time.
 * Use Bootstrap to make CSS simpler.
+
+Current Issues
+----------------------------------------------
+`Time.now` method is working on the local server but not when deployed on *Heroku*.
 
 ***Now, scroll up and click on the link and find your favourite Restaurant:***

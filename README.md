@@ -59,9 +59,9 @@ Each Cuisine will present you with a list of **Restaurants** that specialize in 
 
 Restaurants
 ------------------------------------------
-You can find the following information on the ***Restaurant*** page that will help you make the best choice:
+You can find the following information on a ***Restaurant*** page that will help you make the best choice:
 
-- Treat to the Eye: Food ***Photos*** that will give you a visual demonstration of how the dishes will look like when served
+- Treat to the Eye: Food ***Photos*** that will give you a visual demonstration of how tempting the dishes will look like when served
 - ***Cuisine*** Type
 - ***Location*** of the Restaurant
 - Signature Dish
@@ -73,7 +73,7 @@ You can find the following information on the ***Restaurant*** page that will he
 
 #### Alternatively
 ----------------------------------------------
-You can also search for the *Restaurants* directly from our list. The list shows the basic data like location and average rating of each Restaurant and in order to know more details for each, *Users* needs to click on it.
+You can also search for the *Restaurants* directly from our list. The list shows the basic information like *location* and average *rating* of each Restaurant and in order to know more details for each, *Users* needs to click on it.
 
 ![Restaurant](images/TicTacToe_ani.gif)
 
@@ -94,7 +94,16 @@ Now, let's have a real conversation!
 - Likes
 - Users
 
-This application has individual ```.erb files``` **HTML** pages for each **Model's** *Index*, *Show*, *Edit* and *New* **Views**. The methods are well defined in the **Controller** files creating an ```instance variable``` for each method in order for it to have access in the View Page and be able to render data on the screen.
+![MVC](images/TicTacToe_ani.gif)
+
+Each **Model** inherits from *ActiveRecord* that does the following in an object oriented fashion:
+* Create tables
+* Represent associations between Models
+* Perform database operations.
+
+All the controllers inherit from the *ApplicationController* that gives them all of its functionality.The ```methods``` are well defined in the **Controller** files creating an ```instance variable``` for each method in order for it to have access in the *View* Page and be able to render data on the screen.
+
+This application has individual ```.erb files``` **HTML** pages for each *Model's* *Index*, *Show*, *Edit* and *New* **Views**.
 
 There is a vigorous use of **CSS** with a blend of attractive colours and plenty of hover effects. Each page has its own customized styling.
 
@@ -102,36 +111,55 @@ There is a minimal amount of **Javascript** applied to enhance some CSS features
 
 Major Features:
 ----------------------------------------
+`gem 'bcrypt'`
+- This gem was installed to enable usage of secured passwords for **Users**.
 
-`chooseLevel()`
-- Player can choose the *Game Level* and the *Type of Rounds* the player is interested in
+`gem 'ransack'`
+- This gem was installed to create the **Search Bar** on the *Cuisines and Restaurants Index Pages*.
 
-`playGame()`
-- Gets executed when **3x3** board boxes are clicked for either *Single Round* or *Tournament* and the results are rendered on the screen
+![gem](images/TicTacToe_ani.gif)
 
-`playGameHard()`
-- Gets executed when **4x4** board boxes are clicked for either *Single Round* or *Tournament* and the results are rendered on the screen
+`Nested Resources`
+- The **Reviews** and **Likes** `Routes` are nested inside the **Restaurants Routes**.
 
-`resetGame()`
-- Player can hit the reset button to start a *New Game*
+This enables the *User* to `Add Review` for that particular Restaurant without having to select it additionally. Since the User is clicking on *Add Review* from the *Restaurant Show Page*, the *Nested Routes* take the `Restaurant ID` along when directed towards `Review Form` so the Reviews get ***created*** and ***updated*** accordingly at the correct page.
+
+![add review](images/TicTacToe_ani.gif)
+
+`.count method`
+- Renders the total number of ***Likes*** and **Reviews** on the screen for each *Restaurant* by *Users*.
+
+`.sort method`
+- The Restaurants are listed in the order of the number of ***Likes***. The one with highest number of likes will always render at the top of the page so that the ***Users*** can make choices based on the popularity if they prefer.
+
+![likes](images/TicTacToe_ani.gif)
+
+`average-rating`
+- Both the *Index* and *Show* Pages show the average rating of each Restaurant based on the number of ratings they have got till now.
+
+![Restaurants](images/TicTacToe_ani.gif)
+
+`Time.now method`
+- Using this method with the `if else` condition to compare the ***opening*** and ***closing*** times of the *Restaurant* displays in real time whether the Restaurant is currently OPEN or CLOSED.
+
+![Restaurants](images/TicTacToe_ani.gif)
+
+`.order(created_at: :desc)`
+- This maintains the order of the **Reviews**, the latest being on top on being ***added***. Plus, the ones which get ***edited*** also maintain their original position rather than moving at the top.
+
+`.created_at.strftime '%A, %B %e, %Y | %H:%M:%S'`
+- Displays the date, day and time of the *Review* posted by the *User*.
 
 Acknowledgement
 -------------------------------------------
-- My *husband* who gave me hints to help me figure out the game logic
-- ***Special thanks*** to *Yianni* & *Joel* for helping out with instant solutions every time I was stuck with a problem
+- This project would not have been possible without *Yianni's* and *Joel's* physical presence in the classroom or virtual presence on Slack. They assisted in every possible manner. I had planned out all the features that I wanted in my project but how to implement those were a challenge. Everytime, I started with either basic or big, I was stuck and it was them who took me out of the complicated loop and helped me with the results.
+
+- I would also take the opportunity to show gratitude towards my Husband *Huzaifa* who was always there motivating me and building up my confidence.
 
 Coming Soon
 ---------------------------------------------
-* Player will be able to choose if he wants to play with the computer or with a friend online
-* Player will get the facility to choose from a range of fancy icons
+* Build this application using Zomato API
+* Add one more **Model** ***Locations*** so that ***Users*** can find ***Restaurants*** in their preferred Location.
+* Use Bootstrap to make CSS simpler.
 
-
-***Now, scroll up and click on the link and do the following:***
-
-```
-const enjoyGame = function () {
-  alert('Fun Unlimited!');
-};
-
-enjoyGame();
-```
+***Now, scroll up and click on the link and find your favourite Restaurant:***
